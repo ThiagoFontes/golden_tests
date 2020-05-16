@@ -49,7 +49,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   List<Widget> _createColoredContainers() {
     List<Widget> containersList = [];
-    Random random = new Random();
     for (int i = 0; i < 5; i++) {
       containersList.add(
         Container(
@@ -57,9 +56,9 @@ class _MyHomePageState extends State<MyHomePage> {
           height: 100,
           color: Color.fromARGB(
             255,
-            random.nextInt(255),
-            random.nextInt(255),
-            random.nextInt(255),
+            100 + i * 30,
+            200,
+            200,
           ),
         ),
       );
