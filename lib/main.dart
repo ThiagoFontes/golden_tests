@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -37,32 +35,31 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Wrap(
-          spacing: 10,
-          runSpacing: 10,
-          direction: Axis.horizontal,
-          children: _createColoredContainers(),
+        child: Container(
+          height: 100,
+          child: ListView.separated(
+            itemCount: 5,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (BuildContext context, int index) =>
+                _createColoredContainers(index),
+            separatorBuilder: (BuildContext context, int index) => Container(
+              width: 10,
+            ),
+          ),
         ),
       ),
     );
   }
 
-  List<Widget> _createColoredContainers() {
-    List<Widget> containersList = [];
-    for (int i = 0; i < 5; i++) {
-      containersList.add(
-        Container(
-          width: 100,
-          height: 100,
-          color: Color.fromARGB(
-            255,
-            100 + i * 30,
-            200,
-            200,
-          ),
-        ),
-      );
-    }
-    return containersList;
+  Widget _createColoredContainers(int i) {
+    return Container(
+      width: 100,
+      color: Color.fromARGB(
+        255,
+        100 + i * 30,
+        200,
+        200,
+      ),
+    );
   }
 }
