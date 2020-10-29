@@ -38,6 +38,6 @@ jobs:
         
     - name: Getting event_name
       env:
-        GITHUB_CONTEXT: $([ ${{ github.event_name }} == "pull_request" ] && "a" || "b")
+        GITHUB_CONTEXT: ${{ github.event_name }}
       run: |
         echo "$GITHUB_CONTEXT"
