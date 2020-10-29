@@ -22,22 +22,22 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: Flutter action
-      uses: subosito/flutter-action@v1.3.2
-      with: 
-        flutter-version: 1.17.0
+    #- name: Flutter action
+    #  uses: subosito/flutter-action@v1.3.2
+    #  with: 
+    #    flutter-version: 1.17.0
 
     
-    - name: Flutter version
-      run: flutter --version
+    #- name: Flutter version
+    #  run: flutter --version
       
-    - name: Run a multi-line script
-      run: |
-        flutter pub get
-        flutter test
+    #- name: Run a multi-line script
+    #  run: |
+    #    flutter pub get
+    #    flutter test
         
     - name: Getting event_name
       env:
-          GITHUB_CONTEXT: ${{ github.event_name }}
+        GITHUB_CONTEXT: ${{ github.event_name }}
       run: |
         echo "$GITHUB_CONTEXT"
