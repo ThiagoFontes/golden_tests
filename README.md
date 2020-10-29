@@ -2,7 +2,7 @@
 
 ![Run tests](https://github.com/ThiagoFontes/golden_tests/workflows/Run%20tests/badge.svg?branch=master)
 
-A Flutter project.
+A project.
 
 ## Getting Started
 
