@@ -35,3 +35,7 @@ jobs:
       run: |
         flutter pub get
         flutter test
+        
+    - name: Getting event_name
+      run: |
+        echo github.event
