@@ -1,0 +1,3 @@
+lane :test do
+  puts ENV["FIREBASE_APP_TOKEN_HOMOLOGACAO"] == "pull_request" ? "alpha-hg" : "homologacao"
+end
