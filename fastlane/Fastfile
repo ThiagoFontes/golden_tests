@@ -1,3 +1,7 @@
 lane :test do
   puts ENV["FIREBASE_APP_TOKEN_HOMOLOGACAO"] == "pull_request" ? "alpha-hg" : "homologacao"
 end
+
+lane :homologacao do
+  sh "cd .. && cd android/fastlane && fastlane homologacao"
+end
