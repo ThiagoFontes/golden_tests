@@ -19,7 +19,33 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    #- name: Flutter action
+    - uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+          
+    - uses: subosito/flutter-action@v1
+      with:
+        channel: 'stable'
+    
+    - name: Install dependencies
+      run: |
+        flutter -v
+        flutter pub get
+    
+    - name: Install gem
+      run: sudo gem install bundler
+      
+    - name: Install Android dependencies
+      run: |
+        cd android
+        bundle install
+        
+    - name: Fastlane Action
+      uses: maierj/fastlane-action@v1.4.0
+      with:
+        lane: 'homologacao'
+        subdirectory: 'android'
+  #- name: Flutter action
     #  uses: subosito/flutter-action@v1.3.2
     #  with: 
     #    flutter-version: 1.17.0
