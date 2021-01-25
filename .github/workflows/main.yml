@@ -65,4 +65,5 @@ jobs:
       env:
         GITHUB_CONTEXT: ${{ github.event_name }}
       run: |
+        echo "${{ github.event.release.prerelease }}"
         echo "$GITHUB_CONTEXT"
