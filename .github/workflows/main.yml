@@ -60,7 +60,11 @@ jobs:
     #  run: |
     #    flutter pub get
     #    flutter test
-        
+   
+    - name: Production
+      if: ${{ github.event.release.prerelease }}
+      run: echo "Ready!"
+      
     - name: Getting event_name
       env:
         GITHUB_CONTEXT: ${{ github.event_name }}
