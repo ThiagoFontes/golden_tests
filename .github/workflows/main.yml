@@ -8,6 +8,7 @@ name: Run tests
 on:
   push:
   pull_request:
+    types: [created]
   release:
     types: [created]
 
@@ -68,6 +69,10 @@ jobs:
     - name: Production
       if: ${{ !github.event.release.prerelease }}
       run: echo "Ready!"
+      
+    - name: HG Build
+      if: ${{ github.event.release.prerelease || github.event_name == "pull" }}
+      run: echo "HG!"
       
     - name: Getting event_name
       env:
