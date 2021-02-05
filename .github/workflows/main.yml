@@ -6,8 +6,6 @@ name: Run tests
 # events but only for the master branch
 
 on:
-  pull_request:
-    types: [assigned]
   release:
     types: [created]
 
@@ -65,16 +63,7 @@ jobs:
     #    flutter pub get
     #    flutter test
    
-    - name: Production
-      if: (${{github.event_name}} != "pull_request") && ${{ !github.event.release.prerelease }}
-      run: echo "Ready Release!"
-      
-    - name: Hg Production
-      if: (${{github.event_name}} != "pull_request") && ${{ !github.event.release.prerelease }}
-      run: echo "Ready Pre-release!"
-      
     - name: HG Build
-      if: (${{ github.event.release.prerelease }}) || (${{github.event_name}} == "pull_request")
       run: echo "HG!"
       
     - name: Getting event_name
