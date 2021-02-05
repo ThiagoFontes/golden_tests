@@ -76,7 +76,8 @@ jobs:
     - name: Getting event_name
       env:
         GITHUB_CONTEXT: ${{ github.event_name }}
+        PRE_RELEASE:  ${{ github.event.release.prerelease }}
       run: |
         echo "${{ github.event_name }}"
-        echo "${{ github.event.release.prerelease }}"
+        echo "$PRE_RELEASE"
         echo "$GITHUB_CONTEXT"
