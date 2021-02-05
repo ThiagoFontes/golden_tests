@@ -67,7 +67,7 @@ jobs:
     #    flutter test
    
     - name: Production
-      if: ${{ !github.event.release.prerelease }}
+      if: ${{ !github.event.release.prerelease }} && || github.event_name == "release"
       run: echo "Ready!"
       
     - name: HG Build
