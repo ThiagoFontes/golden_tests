@@ -6,6 +6,8 @@ name: Run tests
 # events but only for the master branch
 
 on:
+  pull_request:
+    types: [assigned]
   release:
     types: [created]
 
