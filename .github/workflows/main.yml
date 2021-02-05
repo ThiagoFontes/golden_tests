@@ -66,11 +66,11 @@ jobs:
     #    flutter test
    
     - name: Production
-      if: ${{ !github.event.release.prerelease }} && github.event_name == "release"
+      if: ${{ !github.event.release.prerelease }} && ${{github.event_name}} == "release"
       run: echo "Ready!"
       
     - name: HG Build
-      if: (${{ github.event.release.prerelease }}) || github.event_name == "pull"
+      if: (${{ github.event.release.prerelease }}) || ${{github.event_name}} == "pull_request"
       run: echo "HG!"
       
     - name: Getting event_name
