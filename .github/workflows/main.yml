@@ -71,7 +71,7 @@ jobs:
       run: echo "Ready!"
       
     - name: HG Build
-      if: ${{ github.event.release.prerelease || github.event_name == "pull" }}
+      if: (${{ github.event.release.prerelease }}) || github.event_name == "pull"
       run: echo "HG!"
       
     - name: Getting event_name
