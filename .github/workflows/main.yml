@@ -6,6 +6,7 @@ name: Run tests
 # events but only for the master branch
 
 on:
+  workflow_dispatch:
   release:
     types: [created]
 
