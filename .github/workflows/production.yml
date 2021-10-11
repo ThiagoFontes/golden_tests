@@ -1,0 +1,19 @@
+name: Production Workflow
+
+on:
+  pull_request:
+    types: [assigned]
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Production
+      if: (${{github.event_name}} != "pull_request") && ${{ !github.event.release.prerelease }}
+      run: echo "Ready Release!"
+
+    - name: Hg Production
+      if: (${{github.event_name}} != "pull_request") && ${{ !github.event.release.prerelease }}
+      run: echo "Ready Pre-release!"  
